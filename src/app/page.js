@@ -1,3 +1,5 @@
+"use client";
+import React, {useState} from 'react';
 import { Inter } from '@next/font/google'
 import { BsFillMoonStarsFill } from 'react-icons/bs';
 import {AiFillTwitterCircle, AiFillLinkedin, AiFillGithub} from 'react-icons/ai';
@@ -5,10 +7,40 @@ import Image from 'next/image';
 import deved from '../../public/dev-ed-wave.png';
 import consulting from '../../public/consulting.png';
 import design from '../../public/design.png';
+import code from '../../public/code.png';
+import online_assignment from '../../public/online-assignment.png';
+
+import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
+import {RxDot} from 'react-icons/rx';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [current, setCurrent] = useState(0);
+  const previousSlide = () => {
+    setCurrent(current === 0 ? slides.length - 1 : current - 1);
+  };
+  const nextSlide = () => {
+    setCurrent(current === slides.length - 1 ? 0 : current + 1);
+  };
+  const slides = [
+    {
+      title: 'Slide 1',
+      description: 'Description 1',
+      url : 'https://images.unsplash.com/photo-1661961110218-35af7210f803?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    },
+    {
+      title: 'Slide 2',
+      description: 'Description 2',
+      url : 'https://images.unsplash.com/photo-1661956602153-23384936a1d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    },
+    {
+      title: 'Slide 3',
+      description: 'Description 3',
+      url : 'https://plus.unsplash.com/premium_photo-1663013281483-b51dbaf57eee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    },
+  ]
   return (
     <div>
       <header>
@@ -50,9 +82,27 @@ export default function Home() {
             </p>
            
       </div>
-      <div className=''> 
+      <div className='grid grid-cols-3 gap-4'> 
         <div className=' text-center shadow-xl p-10 rounded-xl my-10  flex-1 '>
           <Image className='mx-auto' src={design}  width={100} height={100}/>
+          <h3 className='text-lg font-medium pt-8 pb-2 py-2'> engineering student at EMSI </h3>
+          <p className='py-2'> I design and build beautiful websites and web apps</p>
+          <h4 className='py-4 text-lg text-teal-400'> Desgin tools I use </h4>
+          <p className='text-gray-800 py-1 '>Photoshop</p>
+          <p className='text-gray-800 py-1 '>Figma</p>
+          <p className='text-gray-800 py-1'>Adobe Xd</p>
+        </div>
+        <div className=' text-center shadow-xl p-10 rounded-xl my-10  flex-1 '>
+          <Image className='mx-auto' src={code }  width={100} height={100}/>
+          <h3 className='text-lg font-medium pt-8 pb-2 py-2'> coding </h3>
+          <p className='py-2'> I design and build beautiful websites and web apps</p>
+          <h4 className='py-4 text-lg text-teal-400'> Desgin tools I use </h4>
+          <p className='text-gray-800 py-1 '>Photoshop</p>
+          <p className='text-gray-800 py-1 '>Figma</p>
+          <p className='text-gray-800 py-1'>Adobe Xd</p>
+        </div>
+        <div className=' text-center shadow-xl p-10 rounded-xl my-10  flex-1 '>
+          <Image className='mx-auto' src={consulting}  width={100} height={100}/>
           <h3 className='text-lg font-medium pt-8 pb-2 py-2'> Beautiful Designs </h3>
           <p className='py-2'> I design and build beautiful websites and web apps</p>
           <h4 className='py-4 text-lg text-teal-400'> Desgin tools I use </h4>
@@ -61,6 +111,42 @@ export default function Home() {
           <p className='text-gray-800 py-1'>Adobe Xd</p>
         </div>
       </div>
+      <div className='text-center'>
+            <h3 className="text-3xl py-1 text-gray-700 ">projects i built</h3>
+            <p className="text-md py-2 leading-8 text-gray-800">
+              Since the beginning of my journey as a full stack  developer , I've done remote work for
+              <span className="text-teal-500"> agencies </span>
+              consulted for <span className="text-teal-500">startups  haha</span>
+            </p>
+      </div>
+      <div>
+        <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group'>
+          <div style={{backgroundImage: `url(${slides[current].url})`}} className=' w-full h-full bg-center rounded-2xl bg-cover duration-500' >
+          </div>
+          <div>
+            <BsChevronCompactLeft onClick={previousSlide}  className='hidden group-hover:block absolute text-4xl rounded-full translate-x-0 bg-black/20 cursor-pointer text-white transaction-y-[50%] left-7 top-[50%] duration-300'/>
+          </div>
+          <div>
+            <BsChevronCompactRight onClick={nextSlide} className='hidden group-hover:block absolute text-4xl rounded-full translate-x-0 bg-black/20 cursor-pointer text-white transaction-y-[50%] right-7 top-[50%] duration-300' /> 
+          </div>
+           <div className='top-4 py-7 flex gap-3 justify-center'>
+            {slides.map((slide, index) => (
+              <div key={index} className=''>
+                <div onClick={() => setCurrent(index)} ><RxDot className={`h-4 w-4 rounded-full cursor-pointer text-2xl ${current === index && ' bg-gray-500 '}  text-gray-500`} /></div>
+              </div>
+            ))}
+            
+          </div>
+        </div>
+
+
+
+
+        {/* <div className=''>
+          <Image className='mx-auto' src={online_assignment} />
+        </div> */}
+      </div>
+
       </section>
       </main>
       
