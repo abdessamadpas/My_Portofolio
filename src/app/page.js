@@ -46,14 +46,14 @@ export default function Home() {
       <header>
         <title>wewe</title>
       </header>
-      <main className='bg-white px-10  md:px-20 lg:px-40'>
+      <main className='bg-white px-10  md:px-20 lg:px-40 overflow-y-hidden	'>
       <section className=' min-h-screen'>
         <nav className='flex justify-between	mb-12 p-10'>
-          <h1 className='text-xl font-burtons'> AbdessamadPas</h1>
+          <h1 className='text-xl font-burtons sm:mr-10 opacity-100 hover:opacity-60 cursor-help	duration-300 '> AbdessamadPas</h1>
           <ul className='flex  items-center'>
-            <li ><BsFillMoonStarsFill className='cursor-pointer	text-xl'/></li>
+            <li ><BsFillMoonStarsFill className='cursor-pointer ml-5	text-xl'/></li>
             <li>
-              <a className='rounded-md px-4 py-2 ml-10  bg-gradient-to-r from-cyan-500 to-blue-500 ' >resume</a></li>
+              <a className='rounded-md px-4 py-2  ml-5  md:m-10 bg-gradient-to-r from-cyan-500 to-blue-500 ' >resume</a></li>
           </ul>
         </nav>
         <div className='text-center py-10'>  
@@ -82,7 +82,7 @@ export default function Home() {
             </p>
            
       </div>
-      <div className='grid grid-cols-3 gap-4'> 
+      <div className='grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-3'> 
         <div className=' text-center shadow-xl p-10 rounded-xl my-10  flex-1 '>
           <Image className='mx-auto' src={design}  width={100} height={100}/>
           <h3 className='text-lg font-medium pt-8 pb-2 py-2'> engineering student at EMSI </h3>
@@ -129,7 +129,7 @@ export default function Home() {
           <div>
             <BsChevronCompactRight onClick={nextSlide} className='hidden group-hover:block absolute text-4xl rounded-full translate-x-0 bg-black/20 cursor-pointer text-white transaction-y-[50%] right-7 top-[50%] duration-300' /> 
           </div>
-           <div className='top-4 py-7 flex gap-3 justify-center'>
+           <div className='top-4 py-7 flex gap-3 justify-center overflow-auto'>
             {slides.map((slide, index) => (
               <div key={index} className=''>
                 <div onClick={() => setCurrent(index)} ><RxDot className={`h-4 w-4 rounded-full cursor-pointer text-2xl ${current === index && ' bg-gray-500 '}  text-gray-500`} /></div>
