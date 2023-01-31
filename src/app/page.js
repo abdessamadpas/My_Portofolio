@@ -19,7 +19,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const previousSlide = () => {
     setCurrent(current === 0 ? slides.length - 1 : current - 1);
   };
@@ -64,8 +64,8 @@ export default function Home() {
         <div className='text-center py-10'>  
           <h2 className='text-5xl py-3 text-teal-600 dark:text-teal-500 '> Abdessamad AALOUWAN</h2>
           <h3 className='text-2xl py-2 text-gray-600 dark:text-gray-400'> Full stack developer</h3>
-          <p className='text-md leading-8 py-5 text-gray-800 dark:text-gray-300'>
-            freelance web developer, i build websites and web apps for small businesses and individuals.
+          <p className='text-md leading-8 py-5 text-gray-800 dark:text-gray-300 md:text-xl max-w-4xl mx-auto'>
+            freelance web/mobile full stack developer ,engineering student at EMSI (MOROCCO) i build websites and web apps for small businesses and individuals.
           </p>
         </div>
         <div className='flex justify-center gap-16 text-gray-500 '>
@@ -74,7 +74,7 @@ export default function Home() {
           <AiFillGithub className='text-4xl dark:text-gray-300'/>
         </div>
         <div className='mt-10 flex justify-center mx-auto bg-gradient-to-t from-cyan-500 to-blue-500 rounded-full h-80 w-80 overflow-hidden'>
-          <Image  src={deved}  />
+          <Image  src={deved} />
         </div>
       </section>
       <section>
