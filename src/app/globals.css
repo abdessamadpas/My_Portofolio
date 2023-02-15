@@ -17,6 +17,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+overflow: hidden;
 }
 
 a {
@@ -26,4 +27,17 @@ a {
 @font-face {
   font-family: "burtons";
   src: url('../../public/Burtons.otf')
+}
+
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
 }
