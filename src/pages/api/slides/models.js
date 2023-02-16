@@ -25,6 +25,6 @@ const projectSchema = new mongoose.Schema({
     required: true,
   },
   slides: [slideSchema],
-});
+},);
 
 export default mongoose.models.Project || mongoose.model('Project', projectSchema);
