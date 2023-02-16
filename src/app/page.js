@@ -10,36 +10,21 @@ import design from '../../public/design.png';
 import code from '../../public/code.png';
 
 
-
-
-
-
 export default function Home() {
-  const [current, setCurrent] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
   const [popUp, setPopUp] = useState(false);
   
   const handleClickPopUp=()=>{
     setPopUp(!popUp)
   }
-  const PopUpProjects=()=>{
-    if(popUp){
-      return(
-       <Model handleClickPopUp={handleClickPopUp}/>
-          )
-    }
-  }
-
-
 
   return (
     
-    <div className={darkMode ? "dark" : ""}>
+    <div className={darkMode ? "dark" : "" + popUp ? "overflow-y-hidden !important" : "" }>
+      <main className={`bg-white px-10  dark:bg-gray-900 md:px-20 lg:px-40 `}>
+
+      {popUp ? <Model handleClickPopUp={handleClickPopUp} /> : null}
       
-
-      <main className='bg-white px-10  dark:bg-gray-900 md:px-20 lg:px-40 scrollbar-none  '>
-      {PopUpProjects()}
-
       <section className=' min-h-screen'>
         <nav className='flex justify-between	mb-12 p-10'>
           <h1 className='text-xl font-burtons sm:mr-10 opacity-100 hover:opacity-60 cursor-help	duration-300 dark:text-white'> AbdessamadPas</h1>
@@ -73,7 +58,6 @@ export default function Home() {
               <span className="text-teal-500"> agencies </span>
               consulted for <span className="text-teal-500">startups  haha</span>
             </p>
-           
       </div>
  
       <div className='grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2'> 

@@ -3,7 +3,6 @@ import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 import {RxDot} from 'react-icons/rx';
 
-
 const Model = (props) => {
     const {handleClickPopUp} = props;
     const [current, setCurrent] = useState(0);
@@ -35,13 +34,13 @@ const Model = (props) => {
     return (
             <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm text-white flex  justify-center items-center overflow-y-scroll" >
 
-                <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group'>
-                <p className='text-2xl text-center mb-8'>{slides[current].title}</p>
+                <div className='max-w-[1200px] h-[600px] w-full m-auto py-2 px-4 relative group'>
+                <p className='text-2xl text-center mb-4'>{slides[current].title}</p>
 
                     <div style={{backgroundImage: `url(${slides[current].url})`}} className=' w-full h-full bg-center rounded-2xl bg-cover duration-500' >
                     </div>
                     <div>
-                        <AiOutlineCloseCircle  onClick={handleClickPopUp}  className=' group-hover:block absolute text-4xl rounded-full translate-x-20 bg-black/20 cursor-pointer text-white transaction-y-[10%] right-7 top-[2%] duration-300'/>
+                        <AiOutlineCloseCircle  onClick={handleClickPopUp}  className=' group-hover:block absolute text-4xl rounded-full translate-x-20 bg-black/20 cursor-pointer text-white transaction-y-[40%] right-9 top-[1%] duration-300'/>
                     </div>
                     <div>
                         <BsChevronCompactLeft onClick={previousSlide}  className='hidden group-hover:block absolute text-4xl rounded-full translate-x-0 bg-black/20 cursor-pointer text-white transaction-y-[50%] left-7 top-[50%] duration-300'/>
@@ -57,13 +56,11 @@ const Model = (props) => {
                         ))}
                     </div>
                     <div>
-                        
                         <p className='text-2xl text-center'>{slides[current].title}</p>
                         <p>Welcome to my developer portfolio! As a developer with a passion for creating innovative solutions,
                             I have spent countless hours honing my skills and expanding my knowledge to provide the best possible 
                             service to my clients. Whether you are a startup or an established enterprise, I am committed to helping
                             you achieve your goals and elevate your business to the next level.</p>
-
 
                     </div>
                 </div>
