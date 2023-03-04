@@ -6,14 +6,21 @@ import {AiFillTwitterCircle, AiFillLinkedin, AiFillGithub} from 'react-icons/ai'
 import Image from 'next/image';
 import deved from '../../public/dev-ed-wave.png';
 import consulting from '../../public/consulting.png';
-import design from '../../public/design.png';
 import code from '../../public/code.png';
+import design from '../../public/design.png';
+
 import './globals.css'
+import ServiceCard from '@/components/serviceCard';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [popUp, setPopUp] = useState(false);
   
+  const [designTools, setDesignTools] = useState([
+    "Photoshop",
+    "Figma",
+    "Adobe Xd",
+  ]);
   const handleClickPopUp=()=>{
     setPopUp(!popUp)
   }
@@ -32,7 +39,9 @@ export default function Home() {
             <ul className='flex  items-center'>
               <li onClick={()=> setDarkMode(!darkMode)} ><BsFillMoonStarsFill className='cursor-pointer ml-5	text-xl dark:text-white'/></li>
               <li>
-                <a className='rounded-md px-4 py-2  ml-5  md:m-10 bg-gradient-to-r from-cyan-500 to-blue-500 ' >resume</a></li>
+                <a className='rounded-md px-4 py-2  ml-5  md:m-10 bg-gradient-to-r from-cyan-500 to-blue-500 ' >resume</a>
+              </li>
+              
             </ul>
           </nav>
           <div className='text-center py-10'>  
@@ -62,33 +71,9 @@ export default function Home() {
         </div>
   
         <div className='grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2'> 
-          <div onClick={handleClickPopUp} className=' text-center shadow-xl p-10 rounded-xl my-10  flex-1 '>
-            <Image className='mx-auto' src={design}  width={100} height={100}/>
-            <h3 className='text-lg font-medium pt-8 pb-2 py-2 dark:text-gray-100'> engineering student at EMSI </h3>
-            <p className='py-2 dark:text-gray-300'> I design and build beautiful websites and web apps</p>
-            <h4 className='py-4 text-lg text-teal-400'> Desgin tools I use </h4>
-            <p className='text-gray-800 py-1 dark:text-gray-500'>Photoshop</p>
-            <p className='text-gray-800 py-1 dark:text-gray-500'>Figma</p>
-            <p className='text-gray-800 py-1 dark:text-gray-500'>Adobe Xd</p>
-          </div>
-          <div className=' text-center shadow-xl p-10 rounded-xl my-10  flex-1 '>
-            <Image className='mx-auto' src={code }  width={100} height={100}/>
-            <h3 className='text-lg font-medium pt-8 pb-2 py-2 dark:text-gray-100'> coding </h3>
-            <p className='py-2 dark:text-gray-300'> I design and build beautiful websites and web apps</p>
-            <h4 className='py-4 text-lg text-teal-400'> Desgin tools I use </h4>
-            <p className='text-gray-800 py-1 dark:text-gray-500'>Photoshop</p>
-            <p className='text-gray-800 py-1 dark:text-gray-500'>Figma</p>
-            <p className='text-gray-800 py-1 dark:text-gray-500'>Adobe Xd</p>
-          </div>
-          <div className=' text-center shadow-xl p-10 rounded-xl my-10  flex-1 '>
-            <Image className='mx-auto' src={consulting}  width={100} height={100}/>
-            <h3 className='text-lg font-medium pt-8 pb-2 py-2 dark:text-gray-100'> Beautiful Designs </h3>
-            <p className='py-2 dark:text-gray-300'> I design and build beautiful websites and web apps</p>
-            <h4 className='py-4 text-lg text-teal-400'> Desgin tools I use </h4>
-            <p className='text-gray-800 py-1 dark:text-gray-500'>Photoshop</p>
-            <p className='text-gray-800 py-1 dark:text-gray-500'>Figma</p>
-            <p className='text-gray-800 py-1 dark:text-gray-500'>Adobe Xd</p>
-          </div>
+          <ServiceCard title = "engineering student at EMSI" image={design} comment='I design and build beautiful websites and web apps' designTools={designTools}/>
+          <ServiceCard title = "coding" image={code}  comment='I design and build beautiful websites and web apps' designTools={designTools}/>
+          <ServiceCard title = "Beautiful Designs" image={consulting} comment='I design and build beautiful websites and web apps' designTools={designTools}/>
         </div>
         <div className='text-center'>
               <h3 className="text-3xl py-1 text-gray-700 dark:text-gray-300">projects i built</h3>
