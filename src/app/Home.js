@@ -11,6 +11,7 @@ import design from '../../public/design.png';
 
 import './globals.css'
 import ServiceCard from '@/components/serviceCard';
+import ProjectCard from '@/components/projectCard';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -82,6 +83,9 @@ export default function Home() {
                 <span className="text-teal-500"> agencies </span>
                 consulted for <span className="text-teal-500">startups  haha</span>
               </p>
+        </div>
+        <div className='grid grid-cols-1 gap-4 '> 
+          <ProjectCard title = "engineering student at EMSI" handleClickPopUp={handleClickPopUp} image={design} comment='I design and build beautiful websites and web apps' designTools={designTools}/>
         </div>
         </section>
         </main>  

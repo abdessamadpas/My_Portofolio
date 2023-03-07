@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image';
 
-const ServiceCard=({title, comment ,image, designTools})=> {
+const ProjectCard=({title, comment ,image, designTools, handleClickPopUp})=> {
   return (
-        <div className=' text-center shadow-xl p-10 rounded-xl my-10  flex-1 '>
+        <div onClick={handleClickPopUp} className=' text-center shadow-xl p-10 rounded-xl my-10  flex-1 '>
             <Image className='mx-auto' src={image}  width={100} height={100}/>
             <h3 className='text-lg font-medium pt-8 pb-2 py-2 dark:text-gray-100'> {title} </h3>
             <p className='py-2 dark:text-gray-300'> {comment}</p>
@@ -15,4 +15,4 @@ const ServiceCard=({title, comment ,image, designTools})=> {
   )
 }
 
-export default ServiceCard
+export default ProjectCard
