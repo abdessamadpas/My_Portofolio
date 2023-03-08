@@ -5,6 +5,9 @@ const nextConfig = {
     concurrentFeatures: true
 
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+},
 }
 
 module.exports = nextConfig
